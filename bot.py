@@ -1,5 +1,6 @@
 
 import logging
+import os
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackContext
 import gspread
@@ -62,7 +63,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 def main():
-    updater = Updater("7751920405:AAEoqZgAU6XnvfZ2qutjJI-9EF11cEkL8-8")
+    updater = Updater(os.environ.get("BOT_TOKEN"))
     dp = updater.dispatcher
 
     conv_handler = ConversationHandler(
